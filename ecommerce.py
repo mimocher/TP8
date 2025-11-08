@@ -80,7 +80,7 @@ def mettre_a_jour_produit():
     print(" Prix modifie!")
 
 def ajouter_champ_disponible():
-    result = produits.update_many({}, {"$set": {"disponible": True}})
+    produits.update_many({}, {"$set": {"disponible": True}})
    
 
 
@@ -186,3 +186,4 @@ def menu():
 if __name__ == "__main__":
 
     menu()
+
