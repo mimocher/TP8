@@ -60,6 +60,11 @@ def rechercher_commandes():
         for c in commandes.find({"client_id": client['_id']}):
             print(f"Date: {c['date_commande']} - Statut: {c['statut']} - Total: {c['montant_total']} DH")
 
+def rechercher_commandes_livrees():
+    print("\n--- Commandes livrées ---")
+    liste = list(commandes.find({"statut": "livrée"}))
+
+
 
 def mettre_a_jour_produit():
     print("\n--- Modifier un produit ---")
@@ -73,6 +78,11 @@ def mettre_a_jour_produit():
     nouveau_prix = float(input("Nouveau prix: "))
     produits.update_one({"nom": nom}, {"$set": {"prix": nouveau_prix}})
     print(" Prix modifie!")
+
+def ajouter_champ_disponible():
+    result = produits.update_many({}, {"$set": {"disponible": True}})
+   
+
 
 
 
@@ -174,4 +184,5 @@ def menu():
 
 
 if __name__ == "__main__":
+
     menu()
