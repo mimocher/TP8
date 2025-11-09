@@ -118,7 +118,7 @@ def supprimer_commandes_client():
         return
     
     result = commandes.delete_many({"client_id": client_doc['_id']})
-    print(f"✓ {result.deleted_count} commande(s) supprimée(s)!")
+    print(f" {result.deleted_count} commande(s) supprimée(s)!")
 
 
 def trier_commandes_par_date():
@@ -186,4 +186,5 @@ def menu():
 if __name__ == "__main__":
 
     menu()
+
 
